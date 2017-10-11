@@ -1,4 +1,4 @@
-package com.example.security;
+package com.example.demo.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -28,10 +28,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	  //get the value from database
+	  String userName="dipak";
+	  String password="password";
+	  String role="ADMIN";
+	  
     // Create a default account
     auth.inMemoryAuthentication()
-        .withUser("admin")
-        .password("password")
-        .roles("ADMIN");
+        .withUser(userName)
+        .password(password)
+        .roles(role);
   }
 }

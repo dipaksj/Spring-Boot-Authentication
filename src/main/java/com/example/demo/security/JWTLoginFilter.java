@@ -1,4 +1,4 @@
-package com.example.security;
+package com.example.demo.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -28,6 +28,7 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
       throws AuthenticationException, IOException, ServletException {
     AccountCredentials creds = new ObjectMapper()
         .readValue(req.getInputStream(), AccountCredentials.class);
+    System.out.println("Credential for Login>>>>>>"+creds.getUsername()+">>>>>password>>>>"+creds.getPassword());
     return getAuthenticationManager().authenticate(
         new UsernamePasswordAuthenticationToken(
             creds.getUsername(),

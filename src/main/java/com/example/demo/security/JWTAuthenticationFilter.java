@@ -1,4 +1,4 @@
-package com.example.security;
+package com.example.demo.security;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
